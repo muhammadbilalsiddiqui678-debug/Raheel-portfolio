@@ -13,17 +13,15 @@ body {
     color: #333;
 }
 
+/* HEADER */
 header {
-    background: #0a3d62;
+    background: linear-gradient(135deg, #0a3d62, #1e5f8a);
     color: white;
-    padding: 40px;
+    padding: 50px;
     text-align: center;
 }
 
-header h1 {
-    margin: 0;
-}
-
+/* SECTION */
 section {
     padding: 30px;
     max-width: 1100px;
@@ -35,19 +33,45 @@ h2 {
     padding-left: 10px;
 }
 
+/* BUTTON */
+.toggle-btn {
+    background: #0a3d62;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* SMOOTH EXPAND */
+#profileText {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+/* GRID */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
+/* CARD */
 .card {
     background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
 }
 
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* EXPERIENCE BOX */
 .experience-box {
     background: #dff9fb;
     padding: 10px;
@@ -56,6 +80,40 @@ h2 {
     margin-top: 10px;
 }
 
+/* TOTAL EXPERIENCE */
+.total-exp {
+    background: #0a3d62;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+/* TIMELINE */
+.timeline {
+    border-left: 3px solid #0a3d62;
+    padding-left: 20px;
+}
+
+.timeline-item {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: #0a3d62;
+    position: absolute;
+    left: -27px;
+    top: 5px;
+    border-radius: 50%;
+}
+
+/* CONTACT */
 .contact {
     background: #0a3d62;
     color: white;
@@ -68,6 +126,7 @@ a {
     text-decoration: none;
 }
 </style>
+
 </head>
 
 <body>
@@ -79,10 +138,17 @@ a {
 
 <section>
     <h2>Profile</h2>
-    <p>
-        Results-driven Chief Commercial Officer with leadership over multi-billion PKR portfolios across Asia & Africa. 
-        Expert in commercial strategy, global expansion, and building high-performance teams in the pharmaceutical industry.
-    </p>
+
+    <button class="toggle-btn" onclick="toggleProfile()" id="btn">
+        Show Profile
+    </button>
+
+    <div id="profileText">
+        <p>
+            Results-driven Chief Commercial Officer with leadership over multi-billion PKR portfolios across Asia & Africa. 
+            Expert in commercial strategy, global expansion, and building high-performance teams in the pharmaceutical industry.
+        </p>
+    </div>
 </section>
 
 <section>
@@ -99,61 +165,58 @@ a {
 
 <section>
     <h2>Professional Experience</h2>
-    <div class="grid">
 
-        <div class="card">
+    <div class="total-exp">
+        27+ Years of Professional Experience
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
             <h3>Chief Commercial Officer</h3>
             <p>Hilton Pharma & Hinocon</p>
-            <p>Leading enterprise growth, global expansion, and commercial transformation across multi-country pharma markets.</p>
             <div class="experience-box">2025 - Present</div>
         </div>
 
-        <div class="card">
+        <div class="timeline-item">
             <h3>Commercial Director</h3>
             <p>Getz Pharma</p>
-            <p>Managed large-scale portfolio growth, strategy execution, and international business expansion.</p>
             <div class="experience-box">2025</div>
         </div>
 
-        <div class="card">
+        <div class="timeline-item">
             <h3>Director Marketing & Sales</h3>
             <p>Getz Pharma</p>
-            <p>Led cross-functional teams and drove revenue growth through strategic marketing and sales leadership.</p>
             <div class="experience-box">2022 - 2024</div>
         </div>
 
-        <div class="card">
+        <div class="timeline-item">
             <h3>Director Business Unit</h3>
             <p>Getz Pharma</p>
-            <p>Oversaw business operations, portfolio growth, and commercial execution across multiple segments.</p>
             <div class="experience-box">2020 - 2022</div>
         </div>
 
-        <div class="card">
+        <div class="timeline-item">
             <h3>Head of Marketing & Sales</h3>
             <p>Helix Pharma</p>
-            <p>Strengthened market presence and accelerated national sales performance.</p>
             <div class="experience-box">2017 - 2020</div>
         </div>
 
-        <div class="card">
+        <div class="timeline-item">
             <h3>Head of Marketing</h3>
             <p>Highnoon Laboratories</p>
-            <p>Introduced digital transformation and innovative marketing strategies.</p>
             <div class="experience-box">2016 - 2017</div>
         </div>
 
-        <div class="card">
+        <div class="timeline-item">
             <h3>Senior Leadership Roles</h3>
             <p>ATCO, Pharmatec, Hilton Pharma</p>
-            <p>Held multiple leadership roles driving sales, marketing, and business development in pharma sector.</p>
             <div class="experience-box">2005 - 2016</div>
         </div>
 
-        <div class="card">
+        <div class="timeline-item">
             <h3>Early Career</h3>
             <p>Aventis Pharma & BMS</p>
-            <p>Built strong foundation in pharmaceutical sales and medical representation.</p>
             <div class="experience-box">1999 - 2005</div>
         </div>
 
@@ -173,6 +236,21 @@ a {
     <p>Email: <a href="mailto:raheelsiddiqui06@gmail.com">raheelsiddiqui06@gmail.com</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/raheel-siddiqui-b97b38176" target="_blank">View Profile</a></p>
 </section>
+
+<script>
+function toggleProfile() {
+    var x = document.getElementById("profileText");
+    var btn = document.getElementById("btn");
+
+    if (x.style.maxHeight && x.style.maxHeight !== "0px") {
+        x.style.maxHeight = "0";
+        btn.innerText = "Show Profile";
+    } else {
+        x.style.maxHeight = x.scrollHeight + "px";
+        btn.innerText = "Hide Profile";
+    }
+}
+</script>
 
 </body>
 </html>
