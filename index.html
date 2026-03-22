@@ -44,11 +44,9 @@ h2 {
     margin-bottom: 10px;
 }
 
-/* SMOOTH EXPAND */
+/* PROFILE (hidden by default) */
 #profileText {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
+    display: none;
 }
 
 /* GRID */
@@ -239,14 +237,14 @@ a {
 
 <script>
 function toggleProfile() {
-    var x = document.getElementById("profileText");
+    var text = document.getElementById("profileText");
     var btn = document.getElementById("btn");
 
-    if (x.style.maxHeight && x.style.maxHeight !== "0px") {
-        x.style.maxHeight = "0";
+    if (text.style.display === "block") {
+        text.style.display = "none";
         btn.innerText = "Show Profile";
     } else {
-        x.style.maxHeight = x.scrollHeight + "px";
+        text.style.display = "block";
         btn.innerText = "Hide Profile";
     }
 }
